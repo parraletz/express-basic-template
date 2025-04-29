@@ -1,0 +1,55 @@
+{
+  "name": "express-basic-template",
+  "version": "1.0.0",
+  "description": "Express 5.0 TypeScript boilerplate with SWC, Zod, and Terminus",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "node dist/app.js",
+    "build": "swc src -d dist --config-file .swcrc --strip-leading-paths",
+    "dev:build": "swc src -w -d dist --config-file .swcrc --strip-leading-paths",
+    "dev:server": "nodemon --watch dist --delay 2 --exec \"node dist/app.js\"",
+    "dev": "pnpm run build && concurrently -k \"pnpm run dev:build\" \"pnpm run dev:server\"",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "typescript",
+    "swc",
+    "zod",
+    "terminus"
+  ],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.6.2",
+  "dependencies": {
+    "@godaddy/terminus": "^4.12.1",
+    "@swc/cli": "^0.7.3",
+    "@swc/core": "^1.11.22",
+    "@swc/helpers": "^0.5.17",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "5.0.0-beta.1",
+    "helmet": "^8.1.0",
+    "pino": "^9.6.0",
+    "pino-pretty": "^13.0.0",
+    "typescript": "^5.8.3",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@typescript-eslint/eslint-plugin": "^8.31.0",
+    "@typescript-eslint/parser": "^8.31.0",
+    "chokidar": "^4.0.3",
+    "concurrently": "^8.2.2",
+    "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.2.6",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.5.3"
+  }
+}
